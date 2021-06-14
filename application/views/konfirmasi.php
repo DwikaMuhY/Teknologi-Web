@@ -61,8 +61,8 @@
 			echo "<td>$row->Nama</td>";
 			echo "<td>$row->Email</td>";
 			if($row->Akses == 0){
-				$terima = '<a href="'.site_url("Home/terima/".$row->NIK).'">Terima</a>';
-				$hapus = '<a href="'.site_url("Home/hapus/".$row->NIK).'">Tolak</a>';
+				$terima = '<a href="'.site_url("Admin/terima/".$row->NIK).'">Terima</a>';
+				$hapus = '<a href="'.site_url("Admin/hapus/".$row->NIK).'">Tolak</a>';
 				echo "<td>".$terima;
 				echo $hapus."</td>";
 			}else{

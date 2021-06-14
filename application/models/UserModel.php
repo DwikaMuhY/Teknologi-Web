@@ -39,5 +39,18 @@ class UserModel extends CI_Model{
 		$this->db->where('NIK', $NIK);
 		$this->db->update('user', $data);
 	}
+
+	function getPathFoto($NIK){
+		$this->db->select('Nama');
+		$this->db->select('Foto');
+		$this->db->where("NIK",$NIK);
+		return $this->db->get("user");
+	}
+
+	function getEmail($NIK){
+		$this->db->select('Email');
+		$this->db->where("NIK",$NIK);
+		return $this->db->get("user");
+	}
 }
 ?>

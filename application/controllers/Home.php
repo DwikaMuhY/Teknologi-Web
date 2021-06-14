@@ -30,10 +30,13 @@ class Home extends CI_Controller{
                 redirect('Admin');
             }else{
                 if($row->Akses == 0){
+                    $arr = array(
+                        "NoAkses" => True
+                    );
                     echo "Tidak Memiliki Akses";
                 }else{
                     $arr = array(
-                        "login" => True
+                        "User" => True
                     );
                     $this->session->set_userdata($arr);
                     echo "Memiliki Akses";
@@ -69,7 +72,7 @@ class Home extends CI_Controller{
                     redirect(site_url('home/message'));
                 }else{
                     $upload_data = $this->upload->data();
-                    $user['Foto'] = base_url('assets/image/').$upload_data['file_name'];
+                    $user['Foto'] = base_url('assets/image/ktp/').$upload_data['file_name'];
                     $user['admin'] = 0;
                     $user['Akses'] = 0;
                 }
@@ -96,18 +99,6 @@ class Home extends CI_Controller{
         }else{
             $this->load->view("message/gagaldaftar");
         }
-    }
-
-    public function hapus($NIK){
-        $this->load->model('UserModel',"",TRUE);
-        $this->UserModel->deleteUser($NIK);
-        $this->load->view("message/berhasiltolak");
-    }
-
-    public function terima($NIK){
-        $this->load->model('UserModel',"",TRUE);
-        $this->UserModel->updateAkses($NIK);
-        $this->load->view("message/berhasilkonfirm");
     }
 	
 	public function pindahCalon(){
