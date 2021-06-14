@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2021 at 08:40 AM
+-- Generation Time: Jun 14, 2021 at 11:24 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -56,7 +56,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`NIK`, `Nama`, `Email`, `Password`, `Foto`, `admin`, `Akses`) VALUES
-('1234567890123456', 'Muhammad Reza Azzahrawan', 'muhamadreza_2@yahoo.com', 'Persib@24', 'http://[::1]/tekweb/assets/image/1234567890123456_Muhammad_Reza_Azzahrawan.jpg', 1, 0);
+('1234567890123456', 'Muhammad Reza Azzahrawan', 'muhamadreza_2@yahoo.com', 'Qwerty@123', 'http://[::1]/tekweb/assets/image/1234567890123456_Muhammad_Reza_Azzahrawan.jpg', 1, 0);
 
 --
 -- Indexes for dumped tables

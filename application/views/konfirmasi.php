@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konfirmasi Pendaftaran</title>
     <link rel="stylesheet" href="<?php echo site_url('../assets/css/bootstrap.css')?>">
+	<style>
+		.logout{
+			color: grey;
+		}
+
+		.logout:hover{
+			text-decoration: none;
+			color: rgb(200,200,200);
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,17 +28,22 @@
 	    <ul class="navbar-nav mr-auto">
 	      <li>
 	        <?php
-	      	$calon = '<a class="nav-link" href="'.site_url("Home/pindahKonfirm/").'">Konfirmasi</a>';
+	      	$calon = '<a class="nav-link" href="'.site_url("Admin/pindahKonfirm/").'">Konfirmasi</a>';
 	        echo $calon;
 	        ?>
 	      </li>
 	      <li class="nav-item">
 	      <?php
-	      	$calon = '<a class="nav-link" href="'.site_url("Home/pindahCalon/").'">Calon</a>';
+	      	$calon = '<a class="nav-link" href="'.site_url("Admin/pindahCalon/").'">Calon</a>';
 	        echo $calon;
 	        ?>
 	      </li>
 	    </ul>
+		<ul class="nav navbar-nav ml-auto">
+			<li class="nav-item">
+				<a href="<?php echo site_url('Admin/logout');?>" class="logout">Logout</a>
+			</li>
+		</ul>
 
 	  </div>
 	</nav>

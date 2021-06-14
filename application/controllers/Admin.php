@@ -5,5 +5,10 @@ class Admin extends CI_Controller{
         $data['user'] = $this->UserModel->getUser();
         $this->load->view("konfirmasi",$data);
     }
+
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('Home');
+    }
 }
 ?>
