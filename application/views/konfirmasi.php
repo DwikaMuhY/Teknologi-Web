@@ -32,9 +32,12 @@
 
 	  </div>
 	</nav>
-	<table border="1" align="center">
-			<tr>
-				<th>NIK</th><th>Nama</th><th>Email</th><th>Akses</th>
+	<table border="1" align="center" class="table">
+			<tr class="thead-dark">
+				<th>NIK</th>
+				<th>Nama</th>
+				<th>Email</th>
+				<th>Akses</th>
 			</tr>
 			<?php
 			foreach($user->result() as $row){
