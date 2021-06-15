@@ -4,12 +4,14 @@ class Admin extends CI_Controller{
         if(!$this->session->userdata('Admin')){
             redirect("Home");
         }
-        $this->load->model('UserModel',"",TRUE);
-        $data['user'] = $this->UserModel->getUser();
-        $this->load->view("konfirmasi",$data);
+        $data['nama'] = $this->session->userdata('Nama');
+        $this->load->view("admin/admin",$data);
     }
 
     public function hapus($NIK){
+        if(!$this->session->userdata('Admin')){
+            redirect("Home");
+        }
         $this->load->model('UserModel',"",TRUE);
         $this->load->helper('file'); //file helper untuk hapus foto
         $nama = str_replace(" ","_",$this->UserModel->getPathFoto($NIK)->row()->Nama);
@@ -45,6 +47,9 @@ class Admin extends CI_Controller{
     }
 
     public function terima($NIK){
+        if(!$this->session->userdata('Admin')){
+            redirect("Home");
+        }
         $this->load->model('UserModel',"",TRUE);
         $this->UserModel->updateAkses($NIK);
         $this->load->view("message/berhasilkonfirm");
@@ -56,13 +61,19 @@ class Admin extends CI_Controller{
     }
 	
 	public function pindahCalon(){
-        $this->load->view("calon");
+        if(!$this->session->userdata('Admin')){
+            redirect("Home");
+        }
+        $this->load->view("admin/calon");
     }
 
     public function pindahKonfirm(){
+        if(!$this->session->userdata('Admin')){
+            redirect("Home");
+        }
         $this->load->model('UserModel',"",TRUE);
         $data['user'] = $this->UserModel->getUser();
-        $this->load->view("konfirmasi",$data);
+        $this->load->view("admin/konfirmasi",$data);
     }
 }
 ?>

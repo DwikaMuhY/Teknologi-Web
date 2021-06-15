@@ -18,13 +18,14 @@ class Home extends CI_Controller{
     public function proseslogin(){
         $this->load->model('UserModel',"",TRUE);
         $email= $this->input->post('username');
-        $password = ($this->input->post('password'));
+        $password = md5($this->input->post('password'));
         $query = $this->UserModel->getUser($email,$password);
         if($query->num_rows()>0){
             $row = $query->row();
             if($row->admin == 1){
                 $arr = array(
-                    "Admin" => True
+                    "Admin" => True,
+                    "Nama" => $row->Nama
                 );
                 $this->session->set_userdata($arr);
                 redirect('Admin');
