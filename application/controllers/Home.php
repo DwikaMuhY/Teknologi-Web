@@ -100,16 +100,6 @@ class Home extends CI_Controller{
             $this->load->view("message/gagaldaftar");
         }
     }
-	
-	public function pindahCalon(){
-        $this->load->view("calon");
-    }
-
-    public function pindahKonfirm(){
-        $this->load->model('UserModel',"",TRUE);
-        $data['user'] = $this->UserModel->getUser();
-        $this->load->view("konfirmasi",$data);
-    }
     
 }
 ?>
