@@ -18,7 +18,7 @@ class Home extends CI_Controller{
     public function proseslogin(){
         $this->load->model('UserModel',"",TRUE);
         $email= $this->input->post('username');
-        $password = md5($this->input->post('password'));
+        $password = ($this->input->post('password'));
         $query = $this->UserModel->getUser($email,$password);
         if($query->num_rows()>0){
             $row = $query->row();
