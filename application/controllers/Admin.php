@@ -54,5 +54,15 @@ class Admin extends CI_Controller{
         $this->session->sess_destroy();
         redirect('Home');
     }
+	
+	public function pindahCalon(){
+        $this->load->view("calon");
+    }
+
+    public function pindahKonfirm(){
+        $this->load->model('UserModel',"",TRUE);
+        $data['user'] = $this->UserModel->getUser();
+        $this->load->view("konfirmasi",$data);
+    }
 }
 ?>
