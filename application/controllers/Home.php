@@ -40,7 +40,7 @@ class Home extends CI_Controller{
                         "User" => True
                     );
                     $this->session->set_userdata($arr);
-                    echo "Memiliki Akses";
+                    redirect('User');
                 }
             }
         }else{
