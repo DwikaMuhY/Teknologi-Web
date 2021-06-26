@@ -34,6 +34,7 @@
             padding: 0 40px;
             display: flex;
             justify-content: center;
+            z-index: 2;
         }
 
         .login p{
@@ -75,6 +76,21 @@
             background-color: #0061a9;
             color: white;
         }
+
+        .about{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding-right: 50px;
+            z-index: 1;
+        }
+
+        .about a{
+            border-radius: 10px 10px 0 0;
+        }
     </style>
 </head>
 <body class="d-flex flex-row">
@@ -94,6 +110,9 @@
     </div>
     <div class="card">
        <img src="<?php echo site_url('../assets/image/login-background.jpg')?>">
+    </div>
+    <div class="about">
+        <a href="<?php echo site_url('Home/aboutus')?>" class="btn btn-primary">Hubungi Kami</a>
     </div>
 </body>
 </html>

@@ -34,6 +34,7 @@
             padding: 40px;
             display: flex;
             justify-content: center;
+            z-index: 2;
         }
 
         .login p{
@@ -83,6 +84,21 @@
         a:hover{
             text-decoration: none;
         }
+
+        .about{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding-right: 50px;
+            z-index: 1;
+        }
+
+        .about a{
+            border-radius: 10px 10px 0 0;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
@@ -118,6 +134,9 @@
     </div>
     <div class="card">
        <img src="<?php echo site_url('../assets/image/login-background.jpg')?>">
+    </div>
+    <div class="about">
+        <a href="<?php echo site_url('Home/aboutus')?>" class="btn btn-primary">Hubungi Kami</a>
     </div>
 
     <script>
