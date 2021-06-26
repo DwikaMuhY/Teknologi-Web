@@ -2,8 +2,8 @@
 class Home extends CI_Controller{
 
     public function index(){
-        if($this->session->userdata('login')){
-            $this->load->view("home");
+        if($this->session->userdata('User')){
+            redirect("User");
         }else if($this->session->userdata('Admin')){
             redirect("Admin");
         }else{

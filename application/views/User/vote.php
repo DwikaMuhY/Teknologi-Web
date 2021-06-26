@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo site_url('../assets/css/bootstrap.css')?>">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Home : User</title>
+    <title>User : Vote</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -20,7 +20,7 @@
 				<ul class="navbar-nav mr-auto">
 				<li>
 					<?php
-					$calon = '<a class="nav-link" href="'.site_url("Vote").'">Vote</a>';
+					$calon = '<a class="nav-link" href="'.site_url('Vote').'">Vote</a>';
 					echo $calon;
 					?>
 				</li>
