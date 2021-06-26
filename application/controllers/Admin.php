@@ -72,7 +72,7 @@ class Admin extends CI_Controller{
             redirect("Home");
         }
         $this->load->model('UserModel',"",TRUE);
-        $data['user'] = $this->UserModel->getUser();
+        $data['user'] = $this->UserModel->getUserNoAkses();
         $this->load->view("admin/konfirmasi",$data);
     }
 }

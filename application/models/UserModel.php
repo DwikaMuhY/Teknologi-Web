@@ -52,5 +52,10 @@ class UserModel extends CI_Model{
 		$this->db->where("NIK",$NIK);
 		return $this->db->get("user");
 	}
+
+	function getUserNoAkses(){
+		$this->db->where('Akses',0);
+		return $this->db->get('user');
+	}
 }
 ?>
