@@ -42,7 +42,7 @@
 
 	<main>
 		<h1>Selamat Datang!</h1>
-		<p>Halaman utama berisikan informasi user (Nama, NIK, Email)</p>
+		<p>Halaman Live count berisikan pie chart dari calon</p>
 	</main>
 </body>
 </html>

@@ -77,7 +77,7 @@
         </div>
 
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top pp" src="..." alt="Card image cap">
+            <img class="card-img-top pp" src="<?php echo site_url('../assets/image/aboutus/iman.jpg')?>" alt="Card image cap">
             <div class="card-body">
             <p class="card-text">Iman Muhdi</p>
                 <p class="card-text">3411181XXX</p>
