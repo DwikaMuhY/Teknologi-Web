@@ -37,7 +37,10 @@ class Home extends CI_Controller{
                     echo "Tidak Memiliki Akses";
                 }else{
                     $arr = array(
-                        "User" => True
+                        "User" => True,
+						"Nama" => $row->Nama,
+                        "NIK" => $row->NIK,
+                        "Email" => $row->Email
                     );
                     $this->session->set_userdata($arr);
                     redirect('User');
