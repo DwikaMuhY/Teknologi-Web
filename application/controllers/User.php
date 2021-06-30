@@ -4,7 +4,10 @@ class User extends CI_Controller{
         if(!$this->session->userdata('User')){
             redirect('Home');
         }
-        $this->load->view('User/user');
+		$data['nama'] = $this->session->userdata('Nama');
+        $data['nik'] = $this->session->userdata('NIK');
+        $data['email'] = $this->session->userdata('Email');
+        $this->load->view('User/user',$data);
     }
 
     public function logout(){
