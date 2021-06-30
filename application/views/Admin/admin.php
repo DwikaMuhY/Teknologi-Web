@@ -29,15 +29,18 @@
 				<ul class="navbar-nav mr-auto">
 				<li>
 					<?php
-					$calon = '<a class="nav-link" href="'.site_url("Admin/pindahKonfirm/").'">Konfirmasi</a>';
-					echo $calon;
+						$calon = '<a class="nav-link" href="'.site_url("Admin/pindahKonfirm/").'">Konfirmasi</a>';
+						echo $calon;
 					?>
 				</li>
 				<li class="nav-item">
-				<?php
-					$calon = '<a class="nav-link" href="'.site_url("Admin/pindahCalon/").'">Calon</a>';
-					echo $calon;
+					<?php
+						$calon = '<a class="nav-link" href="'.site_url("Admin/pindahCalon/").'">Calon</a>';
+						echo $calon;
 					?>
+				</li>
+				<li>
+					<a href="<?php echo site_url('User')?>" class="nav-link">Coblos</a>
 				</li>
 				</ul>
 				<ul class="nav navbar-nav ml-auto">
@@ -45,7 +48,6 @@
 						<a href="<?php echo site_url('Admin/logout');?>" class="logout">Logout</a>
 					</li>
 				</ul>
-
 			</div>
 		</div>
 	</nav>

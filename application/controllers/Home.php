@@ -25,7 +25,10 @@ class Home extends CI_Controller{
             if($row->admin == 1){
                 $arr = array(
                     "Admin" => True,
-                    "Nama" => $row->Nama
+                    "User" => True,
+                    "Nama" => $row->Nama,
+                    "NIK" => $row->NIK,
+                    "Email" => $row->Email
                 );
                 $this->session->set_userdata($arr);
                 redirect('Admin');

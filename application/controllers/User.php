@@ -7,6 +7,10 @@ class User extends CI_Controller{
 		$data['nama'] = $this->session->userdata('Nama');
         $data['nik'] = $this->session->userdata('NIK');
         $data['email'] = $this->session->userdata('Email');
+        if($this->session->userdata('Admin'))
+            $data['admin'] = $this->session->userdata('Admin');
+        else
+            $data['admin'] = false;
         $this->load->view('User/user',$data);
     }
 

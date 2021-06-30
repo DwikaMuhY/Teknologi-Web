@@ -77,6 +77,7 @@ class Admin extends CI_Controller{
         $data['user'] = $this->UserModel->getUserNoAkses();
         $this->load->view("admin/konfirmasi",$data);
     }
+
     public function tambahCalon(){
         if(!$this->session->userdata('Admin')){
             redirect("Home");
