@@ -64,7 +64,9 @@ class Admin extends CI_Controller{
         if(!$this->session->userdata('Admin')){
             redirect("Home");
         }
-        $this->load->view("admin/calon");
+        $this->load->model('CalonModel',"",TRUE);
+        $data['calon'] = $this->CalonModel->getCalon();
+        $this->load->view("admin/calon",$data);
     }
 
     public function pindahKonfirm(){
@@ -74,6 +76,12 @@ class Admin extends CI_Controller{
         $this->load->model('UserModel',"",TRUE);
         $data['user'] = $this->UserModel->getUserNoAkses();
         $this->load->view("admin/konfirmasi",$data);
+    }
+    public function tambahCalon(){
+        if(!$this->session->userdata('Admin')){
+            redirect("Home");
+        }
+        $this->load->view("admin/tambah");
     }
 }
 ?>
