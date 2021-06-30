@@ -42,7 +42,13 @@
 
 	<main>
 		<h1>Selamat Datang!</h1>
-		<p>Halaman utama berisikan informasi user (Nama, NIK, Email)</p>
+		<?php
+		echo "Nama :".$nama."<br>";
+		
+		echo "NIK :".$nik."<br>";
+
+		echo "E-mail :".$email; 
+		?>
 	</main>
 </body>
 </html>
