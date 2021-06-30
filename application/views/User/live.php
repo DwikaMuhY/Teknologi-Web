@@ -9,6 +9,20 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<style>
+		.piechart-flex{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			height: 100vh;
+		}
+
+		#piechart{
+			margin-left: 200px;
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar">
@@ -54,8 +68,33 @@
 	</nav>
 
 	<main>
-		<h1>Selamat Datang!</h1>
-		<p>Halaman Live count berisikan pie chart dari calon</p>
+		<div class="piechart-flex">
+			<div><h1>Live Count</h1></div>
+			<div id="piechart"></div>
+		</div>
 	</main>
+
+	<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	//Edit di sini bagian calon
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+		['Task', 'Hours per Day'],
+		['Work', 8],
+		['Friends', 2],
+		['Eat', 2],
+		['TV', 2],
+		['Gym', 2],
+		['Sleep', 8]
+		]);
+
+		var options = {'width':850, 'height':600};
+
+		var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+		chart.draw(data, options);
+	}
+	</script>
 </body>
 </html>
