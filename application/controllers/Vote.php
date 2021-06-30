@@ -4,7 +4,11 @@ class Vote extends CI_Controller{
         if(!$this->session->userdata('User')){
             redirect("Home");
         }
-        $this->load->view("User/vote");
+        if($this->session->userdata('Admin'))
+            $data['admin'] = $this->session->userdata('Admin');
+        else
+            $data['admin'] = false;
+        $this->load->view("User/vote",$data);
     }
 }
 ?>

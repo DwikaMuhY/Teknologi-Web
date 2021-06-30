@@ -47,6 +47,9 @@
 					echo $calon1;
 					?>
 				</li>
+				<li>
+					<a href="<?php echo site_url('User')?>" class="nav-link">Coblos</a>
+				</li>
 				</ul>
 				<ul class="nav navbar-nav ml-auto">
 					<li class="nav-item">
