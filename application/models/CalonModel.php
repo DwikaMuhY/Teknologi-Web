@@ -10,15 +10,15 @@ class CalonModel extends CI_Model {
 		$this->db->where("id_calon",$id);
 		return $this->db->get('Calon');
 	}
-	function updateCalon($id) {
-		$calon = array(
-			"nama_calon" => $this->input->post("nama"),
-			"foto" => $this->input->post("fotoo"),
-			"visi" => $this->input->post("visii"),
-			"misi" => $this->input->post("misii")
+	function updateCalon($calon) {
+		$update = array(
+			"nama_calon" => $calon['nama_calon'],
+			"foto" => $calon['foto'],
+			"visi" => $calon['visi'],
+			"misi" => $calon["misi"]
 		);
-		$this->db->where("id_calon",$id);
-		return $this->db->update("Calon",$calon);
+		$this->db->where("id_calon",$calon['id_calon']);
+		return $this->db->update("Calon",$update);
 	}
 	function deleteCalon($id) {
 		$this->db->where("id_calon",$id);

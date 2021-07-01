@@ -17,7 +17,7 @@
         }
 
         .pp{
-            max-height: 150px;
+            max-height: 280px;
             height: 100%;
         }
 

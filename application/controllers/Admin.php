@@ -84,9 +84,5 @@ class Admin extends CI_Controller{
         }
         $this->load->view("admin/tambah");
     }
-
-    public function edit(){
-        
-    }
 }
 ?>

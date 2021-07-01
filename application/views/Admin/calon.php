@@ -80,8 +80,8 @@
 				$this->table->set_template($template); 
 				$this->table->set_heading("Nama Calon","Foto","Visi","Misi","Aksi"); 
 				foreach($calon->result() as $r){
-					$edit = '<a href="'.site_url("Admin/edit/".$r->id_calon).'" class="btn btn-primary">Edit</a>';
-					$hapus = '<a href="'.site_url("Admin/hapus/".$r->id_calon).'" class="btn btn-danger">Hapus</a>';
+					$edit = '<a href="'.site_url("calon/update/".$r->id_calon).'" class="btn btn-primary">Edit</a>';
+					$hapus = '<a href="'.site_url("calon/hapus/".$r->id_calon).'" class="btn btn-danger">Hapus</a>';
 					$aksi = "<div class='d-flex justify-content-between align-items-start'>".$edit.$hapus."</div>";
 					$foto = '<img src="'.$r->foto.'">';
 					$this->table->add_row($r->nama_calon,$foto,$r->visi,$r->misi,$aksi);

@@ -40,6 +40,7 @@
 
         .btn{
             margin-top: 20px;
+            margin-bottom: 40px;
         }
     </style>
 </head>

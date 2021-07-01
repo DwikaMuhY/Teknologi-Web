@@ -49,16 +49,53 @@ class Calon extends CI_Controller {
 	public function update($id) {
 		$this->load->model('CalonModel');
 		$data['calon'] = $this->CalonModel->getCalonById($id)->row();
-		$this->load->view("update_calon",$data);
+		$this->load->view("Admin/calon_update",$data);
 	}
 	public function prosesUpdate($id) {
-		if($this->CalonModel->updateCalon($id)) {
-			redirect(site_url("calon"));
-		} else {
+		$this->load->helper('file'); //file helper untuk hapus foto
+        $nama = str_replace(" ","_",$this->CalonModel->getCalonById($id)->row()->nama_calon);
+        $ekstensiFile = explode('.',$this->CalonModel->getCalonById($id)->row()->foto)[1];
+        $path = $nama.".".$ekstensiFile; //path foto
+		if(!unlink("./assets/image/calon/".$path)){
 			redirect(site_url("calon/update/$id"));
 		}
+
+		$calon = array(
+			"id_calon" => $id,
+			"nama_calon" => $this->input->post("nama")
+		);
+
+		$config['upload_path'] = './assets/image/calon';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['file_name'] = $this->input->post("nama");
+
+		$this->load->library('upload',$config);
+		if(!$this->upload->do_upload('foto')){
+			redirect(site_url("calon/update/$id"));
+		}else{
+			$upload_data = $this->upload->data();
+			$calon['foto'] = base_url('assets/image/calon/').$upload_data['file_name'];
+			$calon['visi'] = $this->input->post('visi');
+			$calon['misi'] = $this->input->post('misi');
+
+			
+			if($this->CalonModel->updateCalon($calon)) {
+				redirect(site_url("calon"));
+			}else{
+				redirect(site_url("calon/update/$id"));
+			}
+			
+		}
 	}
+
 	public function hapus($id) {
+		$this->load->helper('file'); //file helper untuk hapus foto
+        $nama = str_replace(" ","_",$this->CalonModel->getCalonById($id)->row()->nama_calon);
+        $ekstensiFile = explode('.',$this->CalonModel->getCalonById($id)->row()->foto)[1];
+        $path = $nama.".".$ekstensiFile; //path foto
+		if(!unlink("./assets/image/calon/".$path)){
+			redirect(site_url("calon/update/$id"));
+		}
 		$this->CalonModel->deleteCalon($id);
 		redirect(site_url("calon"));
 	}
