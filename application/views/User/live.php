@@ -1,3 +1,4 @@
+<?php $c = 0?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,16 +80,21 @@
 	google.charts.setOnLoadCallback(drawChart);
 
 	//Edit di sini bagian calon
-	function drawChart() {
-		var data = google.visualization.arrayToDataTable([
-		['Task', 'Hours per Day'],
-		['Work', 8],
-		['Friends', 2],
-		['Eat', 2],
-		['TV', 2],
-		['Gym', 2],
-		['Sleep', 8]
-		]);
+	function drawChart() {		
+		var result = <?php echo json_encode($calon->result());?>;
+		//console.log(result[2]['nama_calon']);
+		var arr = [
+			['Calon', 'Jumlah']
+		];
+		
+		for(let i=0; i< <?php echo $calon->num_rows()?>; i++){
+			var temp = [];
+			temp.push(result[i]['nama_calon'], Number(result[i]['suara']));
+			arr.push(temp);
+		}
+		
+
+		var data = google.visualization.arrayToDataTable(arr);
 
 		var options = {'width':850, 'height':600};
 

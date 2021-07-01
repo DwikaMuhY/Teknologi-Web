@@ -8,6 +8,10 @@ class Live extends CI_Controller{
             $data['admin'] = $this->session->userdata('Admin');
         else
             $data['admin'] = false;
+
+        $this->load->model("CalonModel","",TRUE);
+
+        $data['calon'] = $this->CalonModel->getCalon();
         $this->load->view("User/live",$data);
     }
 }
