@@ -54,7 +54,11 @@ class UserModel extends CI_Model{
 	}
 
 	function getUserNoAkses(){
-		$this->db->where('Akses',0);
+		$arr = array(
+			'Akses' => 0,
+			'Admin' => 0
+		);
+		$this->db->where($arr);
 		return $this->db->get('user');
 	}
 }
