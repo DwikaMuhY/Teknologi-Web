@@ -19,10 +19,6 @@
 			flex-direction: column;
 			height: 100vh;
 		}
-
-		#piechart{
-			margin-left: 200px;
-		}
 	</style>
 </head>
 <body>
@@ -96,7 +92,7 @@
 
 		var data = google.visualization.arrayToDataTable(arr);
 
-		var options = {'width':850, 'height':600};
+		var options = {'width':850, 'height':600, 'legend':'bottom'};
 
 		var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 		chart.draw(data, options);
