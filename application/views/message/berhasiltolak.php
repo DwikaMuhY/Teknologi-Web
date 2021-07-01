@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berhasil Tolak</title>
     <link rel="stylesheet" href="<?php echo site_url('../assets/css/bootstrap.css')?>">
-    <meta http-equiv="refresh" content="5; url=<?php echo site_url('home')?>">
+    <meta http-equiv="refresh" content="5; url=<?php echo site_url('Admin/pindahKonfirm')?>">
     <style>
         .message{
             display: flex;
