@@ -3,13 +3,7 @@ class CalonModel extends CI_Model {
 	function getCalon() {
 		return $this->db->get("calon");
 	}
-	function insertCalon() {
-		$calon = array(
-			"nama_calon" => $this->input->post("nama"),
-			"foto" => $this->input->post("fotoo"),
-			"visi" => $this->input->post("visii"),
-			"misi" => $this->input->post("misii")
-		);
+	function insertCalon($calon) {
 		return $this->db->insert('Calon',$calon);
 	}
 	function getCalonById($id) {

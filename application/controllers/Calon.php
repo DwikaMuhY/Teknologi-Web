@@ -20,10 +20,30 @@ class Calon extends CI_Controller {
 		$this->load->view("admin/tambah",$data);
 	}
 	public function prosesTambah() {
-		if($this->CalonModel->insertCalon()) {
-			redirect(site_url("admin/calon"));
+		$calon = array(
+			"id_calon" => "",
+			"nama_calon" => $this->input->post("nama")
+		);
+		
+		$config['upload_path'] = './assets/image/calon';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['file_name'] = $this->input->post("nama");
+
+		$this->load->library('upload',$config);
+		if(!$this->upload->do_upload('foto')){
+			redirect(site_url('admin/pindahCalon?GagalTambahCalon'));
+		}else{
+			$upload_data = $this->upload->data();
+			$calon['foto'] = base_url('assets/image/calon/').$upload_data['file_name'];
+			$calon['visi'] = $this->input->post('visi');
+			$calon['misi'] = $this->input->post('misi');
+			$calon['suara'] = 0;
+		}
+
+		if($this->CalonModel->insertCalon($calon)) {
+			redirect(site_url("admin/pindahCalon?BerhasilTambahCalon"));
 		} else {
-			redirect(site_url("admin/calon/tambah"));
+			redirect(site_url('admin/pindahCalon?GagalTambahCalon'));
 		}
 	}
 	public function update($id) {

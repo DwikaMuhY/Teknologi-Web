@@ -23,6 +23,13 @@
 			text-decoration: none;
 			color: rgb(200,200,200);
 		}
+		img{
+			max-width: 200px;
+			width: 100%;
+		}
+		td{
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
@@ -76,7 +83,8 @@
 					$edit = '<a href="'.site_url("Admin/edit/".$r->id_calon).'" class="btn btn-primary">Edit</a>';
 					$hapus = '<a href="'.site_url("Admin/hapus/".$r->id_calon).'" class="btn btn-danger">Hapus</a>';
 					$aksi = "<div class='d-flex justify-content-between align-items-start'>".$edit.$hapus."</div>";
-					$this->table->add_row($r->nama_calon,$r->foto,$r->visi,$r->misi,$aksi);
+					$foto = '<img src="'.$r->foto.'">';
+					$this->table->add_row($r->nama_calon,$foto,$r->visi,$r->misi,$aksi);
 				}
 				echo $this->table->generate();
 			?>

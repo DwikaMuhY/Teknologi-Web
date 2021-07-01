@@ -25,59 +25,87 @@
             text-decoration: none;
             color: rgb(200,200,200);
         }
+
+        .content{
+            padding: 0 20%;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        td, input[type="text"], textarea{
+            width: 100%;
+        }
+
+        .btn{
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="<?php echo site_url("Admin"); ?>">Halaman Admin</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-
-                <ul class="navbar-nav mr-auto">
-                <li>
-                    <?php
-                    $calon = '<a class="nav-link" href="'.site_url("Admin/pindahKonfirm/").'">Konfirmasi</a>';
-                    echo $calon;
-                    ?>
-                </li>
-                <li class="nav-item">
-                <?php
-                    $calon = '<a class="nav-link" href="'.site_url("Admin/pindahCalon/").'">Calon</a>';
-                    echo $calon;
-                    ?>
-                </li>
-                </ul>
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="<?php echo site_url('Admin/logout');?>" class="logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container" style="padding-top:40px;">
+    <div class="container" style="padding:40px 0; text-align: center;">
         <h3>Tambah Calon</h3>
     </div>
     <div class="container">
-        <form action="<?php site_url('admin/calon/prosestambah'); ?>" method="post">
-            <label>Nama Calon</label><br>
-            <input type="text" name="nama" required="Nama Calon"><br>
-            <label class="pad">Foto</label><br>
-            <input type="file" name="fotoo"><br>
-            <label class="pad">Visi</label><br>
-            <textarea rows="10" cols="100" name="visii" required="Visi"></textarea><br>
-            <label class="pad">Misi</label><br>
-            <textarea rows="10" cols="100" name="misii" required="Misi"></textarea><br>
-            <div class="form-group" style="padding-top:20px;">
-                <div>
-                    <input type="submit" value="Tambah Calon" class="btn btn-success">
-                    <button type="button" onclick="window.history.go(-1)" class="btn btn-danger">Kembali</button>
-                </div>
-            </div>
-        </form>
+        <div class="content">
+            <form action="<?php echo site_url('calon/prosestambah'); ?>" method="post" enctype="multipart/form-data">
+                <table>
+                    <tr>
+                        <td>
+                            <label>Nama Calon Presiden dan Wakil Presiden</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="text" name="nama" required="Nama Calon" placeholder="Nurhadi - Aldo">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label class="pad">Foto Pasangan Calon</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="file" name="foto">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label class="pad">Visi</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <textarea rows="10" cols="100" name="visi" required="Visi"></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label class="pad">Misi</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <textarea rows="10" cols="100" name="misi" required="Misi"></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="submit" value="Tambah Calon" class="btn btn-success">
+                        </td>
+                        <td>
+                            <button type="button" onclick="window.history.go(-1)" class="btn btn-danger float-right">Kembali</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
 </body>
 </html>
