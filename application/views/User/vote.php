@@ -113,7 +113,7 @@
 					$view = '<a href="'.site_url("vote/view/".$r->id_calon).'" class="btn oke">View</a>';
 					$vote = '<a href="'.site_url("vote/vote/".$r->id_calon).'" class="btn oke">Vote</a>';
 					$aksi = "<div class='d-flex justify-content-between align-items-start'>".$view.$vote."</div>";
-					$foto = '<img src="'.$r->foto.'">';
+					$foto = '<center><img src="'.$r->foto.'" ></center>';
 					$this->table->add_row($foto,$aksi);
 				}
 				echo $this->table->generate();
