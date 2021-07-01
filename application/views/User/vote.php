@@ -9,6 +9,51 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<style>
+		.display-flex{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			height: 150px;
+		}
+		.content-wrapper{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-top: 40px;
+		}
+		.btn {
+			box-sizing: border-box;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			background-color: transparent;
+			border: 2px solid #e74c3c;
+			border-radius: 0.6em;
+			color: #e74c3c;
+			cursor: pointer;
+			display: flex;
+			align-self: center;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1;
+			margin: 20px;
+			padding: 1.2em 2.8em;
+			text-decoration: none;
+			text-align: center;
+			text-transform: uppercase;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 700;
+		}
+		.oke {
+		  	box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+		  	transition: all 150ms ease-in-out;
+		}
+		.oke:hover {
+		  	box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar">
@@ -54,8 +99,27 @@
 	</nav>
 
 	<main>
-		<h1>Selamat Datang!</h1>
-		<p>ini halaman vote</p>
+		<div class="display-flex">
+			<div><h1>Daftar Calon Presiden</h1></div>
+		</div>
+		<div class="content-wrapper">
+   		<div class="container">
+      		<?php
+				$template = array( 
+					'table_open' => '<table id="myTable" border=0>' 
+				);
+				$this->table->set_template($template);
+				foreach($calon->result() as $r){
+					$view = '<a href="'.site_url("vote/view/".$r->id_calon).'" class="btn oke">View</a>';
+					$vote = '<a href="'.site_url("vote/vote/".$r->id_calon).'" class="btn oke">Vote</a>';
+					$aksi = "<div class='d-flex justify-content-between align-items-start'>".$view.$vote."</div>";
+					$foto = '<img src="'.$r->foto.'">';
+					$this->table->add_row($foto,$aksi);
+				}
+				echo $this->table->generate();
+			?>
+   		</div>
+	</div>
 	</main>
 </body>
 </html>
