@@ -24,5 +24,16 @@ class CalonModel extends CI_Model {
 		$this->db->where("id_calon",$id);
 		return $this->db->delete("Calon");
 	}
+	
+	function updateSuara($id){
+	$this->db->select('suara');
+   	$this->db->from('calon');
+    	$this->db->where('id_calon', $id);
+    	
+    	$suara = $this->db->get()->row()->suara;
+	$this->db->where('id_calon', $id);
+	$data = array('suara' => $suara+1 );
+	$this->db->update('calon', $data);
+	}
 }
 ?>
