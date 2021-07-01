@@ -84,9 +84,7 @@
 		];
 		
 		for(let i=0; i< <?php echo $calon->num_rows()?>; i++){
-			var temp = [];
-			temp.push(result[i]['nama_calon'], Number(result[i]['suara']));
-			arr.push(temp);
+			arr.push([result[i]['nama_calon'], Number(result[i]['suara'])]);
 		}
 		
 
