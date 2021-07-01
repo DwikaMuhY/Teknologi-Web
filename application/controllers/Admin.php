@@ -52,7 +52,26 @@ class Admin extends CI_Controller{
         }
         $this->load->model('UserModel',"",TRUE);
         $this->UserModel->updateAkses($NIK);
-        $this->load->view("message/berhasilkonfirm");
+        $config['mailtype'] = "text";
+        $config['protocol'] = "smtp";
+        $config['smtp_host'] = "smtp.mailtrap.io";
+        $config['smtp_user'] = '5608aea90a8b13';
+        $config['smtp_pass'] = '2efde28f00e5f0';
+        $config['smtp_port'] = 25;
+        $config['newline'] = "\r\n";
+
+        $this->load->library('email', $config);
+
+        $this->email->from('no-reply@ayovote.com', 'Sistem Voting Online Indonesia');
+        $to_email = $this->UserModel->getEmail($NIK)->row()->Email;
+        $this->email->to($to_email);
+        $this->email->subject('Akses Diterima');
+        $this->email->message('Hallo, Selamat! Anda berhasil terdaftar di website coblos online!');
+            
+        if($this->email->send()){
+            $this->load->view("message/berhasilkonfirm");
+        }else
+            redirect("Admin?GagalKonfirmasi");
     }
 
     public function logout(){
