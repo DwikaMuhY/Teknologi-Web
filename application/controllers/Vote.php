@@ -8,7 +8,16 @@ class Vote extends CI_Controller{
             $data['admin'] = $this->session->userdata('Admin');
         else
             $data['admin'] = false;
+
+        $this->load->model("CalonModel","",TRUE);
+
+        $data['calon'] = $this->CalonModel->getCalon();
         $this->load->view("User/vote",$data);
+    }
+    public function view($id) {
+        $this->load->model('CalonModel');
+        $data['calon'] = $this->CalonModel->getCalonById($id)->row();
+        $this->load->view("User/tampil_calon",$data);
     }
 }
 ?>
