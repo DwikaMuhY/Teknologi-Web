@@ -99,5 +99,11 @@ class Calon extends CI_Controller {
 		$this->CalonModel->deleteCalon($id);
 		redirect(site_url("calon"));
 	}
+	
+	public function vote($id){
+	$this->load->model('CalonModel',"",TRUE);
+	$this->CalonModel->updateSuara($id);
+	redirect(site_url("live"));
+	}
 }
 ?>
