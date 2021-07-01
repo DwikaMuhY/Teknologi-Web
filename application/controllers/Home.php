@@ -28,7 +28,8 @@ class Home extends CI_Controller{
                     "User" => True,
                     "Nama" => $row->Nama,
                     "NIK" => $row->NIK,
-                    "Email" => $row->Email
+                    "Email" => $row->Email,
+                    "Vote" => $row->Vote
                 );
                 $this->session->set_userdata($arr);
                 redirect('Admin');
@@ -43,7 +44,8 @@ class Home extends CI_Controller{
                         "User" => True,
 						"Nama" => $row->Nama,
                         "NIK" => $row->NIK,
-                        "Email" => $row->Email
+                        "Email" => $row->Email,
+                        "Vote" => $row->Vote
                     );
                     $this->session->set_userdata($arr);
                     redirect('User');

@@ -12,6 +12,7 @@ class Live extends CI_Controller{
         $this->load->model("CalonModel","",TRUE);
 
         $data['calon'] = $this->CalonModel->getCalon();
+        $data['vote'] = $this->session->userdata('Vote');
         $this->load->view("User/live",$data);
     }
 }

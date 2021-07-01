@@ -61,5 +61,10 @@ class UserModel extends CI_Model{
 		$this->db->where($arr);
 		return $this->db->get('user');
 	}
+
+	function updateVote($nik, $vote){
+		$this->db->where('NIK',$nik);
+		$this->db->update('user',array('Vote' => $vote));
+	}
 }
 ?>

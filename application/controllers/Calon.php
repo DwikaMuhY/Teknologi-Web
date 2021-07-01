@@ -101,9 +101,12 @@ class Calon extends CI_Controller {
 	}
 	
 	public function vote($id){
-	$this->load->model('CalonModel',"",TRUE);
-	$this->CalonModel->updateSuara($id);
-	redirect(site_url("live"));
+		$this->load->model('CalonModel',"",TRUE);
+		$this->load->model('UserModel',"",TRUE);
+		$this->CalonModel->updateSuara($id);
+		$this->UserModel->updateVote($this->session->userdata("NIK"),$id);
+		$this->session->set_userdata('Vote',$id);
+		redirect(site_url("live"));
 	}
 }
 ?>

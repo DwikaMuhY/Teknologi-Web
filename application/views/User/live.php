@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home : User</title>
+    <title>User : Live Count</title>
 	<link rel="stylesheet" href="<?php echo site_url('../assets/css/style/user.css')?>">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,7 +78,6 @@
 	//Edit di sini bagian calon
 	function drawChart() {		
 		var result = <?php echo json_encode($calon->result());?>;
-		//console.log(result[2]['nama_calon']);
 		var arr = [
 			['Calon', 'Jumlah']
 		];
@@ -87,7 +86,6 @@
 			arr.push([result[i]['nama_calon'], Number(result[i]['suara'])]);
 		}
 		
-
 		var data = google.visualization.arrayToDataTable(arr);
 
 		var options = {'width':850, 'height':600, 'legend':'bottom'};

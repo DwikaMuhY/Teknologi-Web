@@ -12,8 +12,10 @@ class Vote extends CI_Controller{
         $this->load->model("CalonModel","",TRUE);
 
         $data['calon'] = $this->CalonModel->getCalon();
+        $data['vote'] = $this->session->userdata('Vote');
         $this->load->view("User/vote",$data);
     }
+
     public function view($id) {
         $this->load->model('CalonModel');
         $data['calon'] = $this->CalonModel->getCalonById($id)->row();

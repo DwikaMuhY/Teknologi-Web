@@ -111,10 +111,15 @@
 				$this->table->set_template($template);
 				foreach($calon->result() as $r){
 					$view = '<a href="'.site_url("vote/view/".$r->id_calon).'" class="btn oke">View</a>';
-					$aksi = "<div class='d-flex justify-content-between align-items-start'>".$view."</div>";
+					if($vote != 0){
+						$aksi = "<div class='d-flex justify-content-between align-items-start'>".$view."</div>";	
+					}else{
+						$coblos = '<a href="'.site_url("calon/vote/".$r->id_calon).'" class="btn oke">Coblos!</a>';
+						$aksi = "<div class='d-flex justify-content-between align-items-start'>".$view.$coblos."</div>";
+					}
 					$foto = '<center><img src="'.$r->foto.'" ></center>';
-					$vote = '<a href="'.site_url("calon/vote/".$r->id_calon).'">'.$foto."</a>";
-					$this->table->add_row($vote,$aksi);
+					//$vote = '<a href="'.site_url("calon/vote/".$r->id_calon).'">'.$foto."</a>";
+					$this->table->add_row($foto,$aksi);
 				}
 				echo $this->table->generate();
 			?>
