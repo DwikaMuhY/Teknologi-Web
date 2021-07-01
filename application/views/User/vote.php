@@ -110,12 +110,10 @@
 				);
 				$this->table->set_template($template);
 				foreach($calon->result() as $r){
-
 					$view = '<a href="'.site_url("vote/view/".$r->id_calon).'" class="btn oke">View</a>';
-
 					$aksi = "<div class='d-flex justify-content-between align-items-start'>".$view."</div>";
-					$foto = '<center><img src="'.$r->foto.'" width="100%"></center>';
-					$vote = '<a href="'.site_url("calon/vote/".$r->id_calon).'" class="btn btn-primary">'.$foto."</a>";
+					$foto = '<center><img src="'.$r->foto.'" ></center>';
+					$vote = '<a href="'.site_url("calon/vote/".$r->id_calon).'">'.$foto."</a>";
 					$this->table->add_row($vote,$aksi);
 				}
 				echo $this->table->generate();
